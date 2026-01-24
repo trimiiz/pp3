@@ -1,8 +1,4 @@
 <?php
-/**
- * Product Detail Page
- * Displays detailed information about a single product
- */
 
 header("Cache-Control: no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
@@ -13,13 +9,13 @@ require_once 'includes/header.php';
 
 $page_title = 'Product Details - TechStore';
 
-// Get product ID from URL parameter
+
 $product_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-// Get product data
+
 $product = getProductById($product_id);
 
-// Conditional check if product exists
+
 if (!$product) {
     echo "<div class='container'>";
     echo "<div class='error-message'>";
@@ -43,7 +39,7 @@ $in_stock = isInStock($stock_quantity);
 $stock_status = getStockStatus($stock_quantity);
 $stock_class = $in_stock ? 'in-stock' : 'out-of-stock';
 
-// Get related products (same category)
+
 $related_products = getAllProducts($product['category_id']);
 ?>
 
@@ -95,7 +91,7 @@ $related_products = getAllProducts($product['category_id']);
             <?php
             $related_count = 0;
             foreach ($related_products as $related) {
-                // Skip current product and limit to 4 related products
+              
                 if ($related['id'] == $product_id || $related_count >= 4) {
                     continue;
                 }

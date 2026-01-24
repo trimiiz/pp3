@@ -1,8 +1,4 @@
 <?php
-/**
- * Admin Categories Management
- * CRUD operations for categories
- */
 
 session_start();
 require_once '../includes/functions.php';
@@ -18,7 +14,6 @@ $pdo = getDBConnection();
 $message = '';
 $message_type = '';
 
-// Handle CRUD operations
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
     

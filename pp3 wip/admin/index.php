@@ -1,8 +1,4 @@
 <?php
-/**
- * Admin Dashboard
- * Main dashboard page with statistics
- */
 
 session_start();
 require_once '../includes/functions.php';
@@ -10,14 +6,14 @@ require_once '../config/database.php';
 
 $page_title = 'Admin Dashboard';
 
-// Simple authentication check (in production, use proper authentication)
+
 if (!isset($_SESSION['admin_logged_in'])) {
-    $_SESSION['admin_logged_in'] = true; // Auto-login for demo
+    $_SESSION['admin_logged_in'] = true; 
 }
 
 $pdo = getDBConnection();
 
-// Get statistics using functions and variables
+
 $total_products = $pdo->query("SELECT COUNT(*) as count FROM products")->fetch()['count'];
 $total_categories = $pdo->query("SELECT COUNT(*) as count FROM categories")->fetch()['count'];
 $total_stock = $pdo->query("SELECT SUM(stock_quantity) as total FROM products")->fetch()['total'];
@@ -110,7 +106,6 @@ $low_stock = $pdo->query("SELECT COUNT(*) as count FROM products WHERE stock_qua
                                                            ORDER BY p.created_at DESC 
                                                            LIMIT 5")->fetchAll();
                             
-                            // Using foreach loop to display recent products
                             foreach ($recent_products as $product) {
                                 $stock_class = $product['stock_quantity'] > 0 ? 'in-stock' : 'out-of-stock';
                                 

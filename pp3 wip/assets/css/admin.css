@@ -1,5 +1,3 @@
-/* Admin Dashboard Styles */
-
 .admin-wrapper {
     display: flex;
     min-height: 100vh;
@@ -70,7 +68,6 @@
     color: var(--dark-color);
 }
 
-/* Dashboard Stats */
 .dashboard-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -107,7 +104,6 @@
     font-size: 0.875rem;
 }
 
-/* Dashboard Section */
 .dashboard-section {
     background: white;
     padding: 1.5rem;
@@ -121,7 +117,6 @@
     color: var(--dark-color);
 }
 
-/* Tables */
 .table-container {
     overflow-x: auto;
 }
@@ -183,7 +178,7 @@
     text-align: center;
 }
 
-/* Forms */
+
 .form-container {
     background: white;
     padding: 2rem;
@@ -244,7 +239,6 @@
     margin-top: 1rem;
 }
 
-/* Messages */
 .message {
     padding: 1rem 1.5rem;
     border-radius: 5px;
@@ -263,7 +257,6 @@
     border-left: 4px solid var(--danger-color);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .admin-sidebar {
         width: 100%;

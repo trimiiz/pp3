@@ -1,18 +1,15 @@
 <?php
-/**
- * Products Page
- * Displays all products with filtering by category
- */
+
 
 require_once 'includes/functions.php';
 require_once 'includes/header.php';
 
 $page_title = 'Products - TechStore';
 
-// Get category filter from URL parameter
+
 $selected_category = isset($_GET['category']) ? (int)$_GET['category'] : null;
 
-// Get products based on filter
+
 if ($selected_category) {
     $products = getAllProducts($selected_category);
     $category_name = '';
@@ -46,7 +43,7 @@ $categories = getAllCategories();
                     </a>
                 </li>
                 <?php
-                // Using foreach loop to display category filters
+                
                 foreach ($categories as $category) {
                     $cat_id = $category['id'];
                     $cat_name = $category['name'];
@@ -64,7 +61,7 @@ $categories = getAllCategories();
 
         <div class="products-content">
             <?php
-            // Conditional check for products
+        
             if (empty($products)) {
                 echo "<div class='no-products'>";
                 echo "<p>No products found in this category.</p>";
@@ -73,7 +70,7 @@ $categories = getAllCategories();
             } else {
                 echo "<div class='products-grid'>";
                 
-                // Using foreach loop to display all products
+              
                 foreach ($products as $product) {
                     $product_id = $product['id'];
                     $product_name = $product['name'];

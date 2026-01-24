@@ -1,9 +1,4 @@
 <?php
-/**
- * Home Page
- * Displays featured products and categories
- */
-
 require_once 'includes/functions.php';
 require_once 'includes/header.php';
 
@@ -23,6 +18,7 @@ $featured_products = getAllProducts();
         </div>
         <div class="slide">
             <div class="slide-content">
+                <img src="images/phones.jpg" alt="" border="5">
                 <h1>Latest Phones</h1>
                 <p>Discover the newest smartphones</p>
                 <a href="products.php?category=1" class="btn btn-primary">View Phones</a>
@@ -42,7 +38,7 @@ $featured_products = getAllProducts();
     </div>
     <div class="slider-dots">
         <?php
-        // Using for loop to create slider dots
+        
         for ($i = 0; $i < 3; $i++) {
             $active_class = ($i === 0) ? 'active' : '';
             echo "<span class='dot {$active_class}' onclick='goToSlide({$i})'></span>";
@@ -56,7 +52,7 @@ $featured_products = getAllProducts();
         <h2>Shop by Category</h2>
         <div class="categories-grid">
             <?php
-            // Using foreach loop to display categories
+            
             foreach ($categories as $category) {
                 $category_id = $category['id'];
                 $category_name = $category['name'];
@@ -76,10 +72,10 @@ $featured_products = getAllProducts();
         <h2>Featured Products</h2>
         <div class="products-grid">
             <?php
-            // Using foreach loop with conditional to display products
+       
             $product_count = 0;
             foreach ($featured_products as $product) {
-                // Limit to 6 featured products
+               
                 if ($product_count >= 6) {
                     break;
                 }
